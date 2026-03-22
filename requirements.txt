@@ -1,0 +1,5 @@
+Django>=6.0
+djangorestframework
+djangorestframework-simplejwt
+firebase-admin
+python-dotenv

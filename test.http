@@ -1,0 +1,50 @@
+### Obtener todas las tareas
+GET http://127.0.0.1:8000/api_tareas/tareas/
+Authorization: Bearer <<token>>
+
+### 1. Registrar un nuevo usuario (POST)
+POST http://127.0.0.1:8000/api_tareas/auth/registro/
+Content-Type: application/json
+
+{
+    "email": "dannasofiamp02@gmail.com",
+    "password": "123456789",
+    "rol":"instructor"
+}
+
+### 2. Iniciar sesión (POST)
+POST http://127.0.0.1:8000/api_tareas/auth/login/
+Content-Type: application/json
+
+{
+    "email": "dannasofiamp02@gmail.com",
+    "password": "123456789"
+}
+### 3. Crear una nueva tarea (POST)
+POST http://127.0.0.1:8000/api_tareas/tareas/
+Content-Type: application/json
+Authorization: Bearer <<TOKEN>>
+{
+    "titulo": "Tarea con API Segura",
+    "descripcion": "Mi primera tarea usuando JWT de Firebase"
+}
+### ELIMINAR TODAS LAS TAREAS (SOLO INSTRUCTOR)
+DELETE http://127.0.0.1:8000/api_tareas/tareas/
+Authorization: Bearer <<TOKEN_DEL_INSTRUCTOR>>
+
+### ELIMINAR UNA TAREA POR ID
+DELETE http://127.0.0.1:8000/api_tareas/tareas/ID_DE_LA_TAREA/
+Authorization: Bearer <<TOKEN>>
+
+###subir la imagen de perfil a clouddinary
+
+POST http://127.0.0.1:8000/api_tareas/perfil/imagen/
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImEyZGZiOGEzOGI1MmQ5ZjA5ZWRjYWE1MDcwYTBlOGYwYTllMDk4YmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVzdC1hcGktZjcxNDAiLCJhdWQiOiJyZXN0LWFwaS1mNzE0MCIsImF1dGhfdGltZSI6MTc3MzM0NzgzMywidXNlcl9pZCI6IktUamxHUUZSdTdTazdFaG80dHBEUzlFTHlxMTMiLCJzdWIiOiJLVGpsR1FGUnU3U2s3RWhvNHRwRFM5RUx5cTEzIiwiaWF0IjoxNzczMzQ3ODMzLCJleHAiOjE3NzMzNTE0MzMsImVtYWlsIjoiZGFubmFzb2ZpYW1wMDJAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImRhbm5hc29maWFtcDAyQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.k5w4eOeiJu9Pp9S_m9fojoR4pntzRkzXsqkksFlao1aAvRrLYgSsFdEIb_2OpvOXtNjMLOTJodJsF25fvhO-Dv_b7znDaIUXjzF-GmOAehwmGUPRaUnGgDp_dufa2Qzi4COHKl3nzdMTiKlKVi_m8QQuwQqfUYqPJSLMFepnWo3nWFkDwB0VoYPTZB0WDKUIKku54P1ZTWE40uDJ8n3BzUuC8rQC5tIHN-fzFSwMnXdWpHeLBfymbwxwdAmhMHuVyvqZcNc6uZDNitVbhh66zmZumbrlxj5ELgZcGgYTERzGrp28ux_QTfxuxsWcS7CZDrDj7ZOxMHyMD9H5S7TWBw
+Content-Type: multipart/form-data; boundary=MiBoundary
+
+--MiBoundary
+Content-Disposition: form-data; name="imagen"; filename="avatar.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\Danna Pinzon\OneDrive\Imágenes\Escritorio\Archivos\Django_project\avatar.jpg
+--MiBoundary--
